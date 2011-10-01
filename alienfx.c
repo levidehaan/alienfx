@@ -465,6 +465,7 @@ int Command(AlienFxHandle_t *fx, char **cmdv)
 					fprintf(stderr, "command: color %d %d %d %x\n",
 							r,g,b, region);
                 Reset(fx->usb_handle, RESET_ALL_LIGHTS_ON);
+		usleep(200000);
                 ColorSet(fx->usb_handle, block, region, r, g, b); 
                 Loop(fx->usb_handle);       
                 SendAndExec(fx->usb_handle);
