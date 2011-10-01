@@ -82,6 +82,22 @@ typedef struct _AlienFxLights_t
 	unsigned char is_composite;	/* is this a composite of other ids */
 } AlienFxLights_t;
 
+// m11x lighting
+AlienFxLights_t LightsM11x[] = {
+        { 0x0001, "keyboard"            ,0 },
+        { 0x0020, "speaker-left"        ,0 },
+        { 0x0040, "speaker-right"       ,0 },
+        { 0x0100, "logo"                ,0 },
+        { 0x0800, "media-bar"           ,0 },
+        { 0x2000, "power-button"        ,0 },
+        { 0x4000, "power-button-eyes"   ,0 },
+        { 0x8000, "power-reset-state"   ,0 },
+        { 0x0961, "all-but-power"       ,1 },
+        { 0xe961, "all"                 ,1 },
+};
+unsigned int LightsM11xCount = (sizeof LightsM11x
+                                                                  / sizeof *LightsM11x);
+
 // AllPowerfull lighting (is that really with two "L"s on the end?)
 AlienFxLights_t LightsAllPowerful[] = {
 	{ 0x0001, "keyboard-right"      ,0 },
@@ -140,6 +156,8 @@ AlienFxType_t AlienFxTypes[] = {
 	// vendor product names - these aren't consistent with iProduct,
 	// since I only had one data point and no easy way to see if AlienWare
 	// had just stamped "G2 Desktop" on all of them or something.
+	{ 0x187c, 0x514, "m11x",
+	  LightsM11x, sizeof LightsM11x / sizeof *LightsM11x },
 	{ 0x187c, 0x511, "area51", 
 	  LightsArea51, sizeof LightsArea51 / sizeof *LightsArea51 },
 	{ 0x187c, 0x512, "allpowerful", 
